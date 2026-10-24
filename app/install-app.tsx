@@ -3,9 +3,10 @@ import {useEffect,useState,useRef} from 'react';
 import {Share,PlusSquare,Check,Download,Copy,MoreVertical} from 'lucide-react';
 import {Dialog,DialogContent,DialogTitle,DialogDescription} from '@/components/ui/dialog';
 import {copyLink} from '@/lib/copy-link';
-const APP_URL='https://findagain.lx2rice.chatgpt.site/';
 type InstallPrompt=Event & {prompt:()=>Promise<void>;userChoice:Promise<{outcome:string}>};
 export default function InstallApp({compact=false}:{compact?:boolean}){
+ const [APP_URL,setAppUrl]=useState('');
+ useEffect(()=>setAppUrl(window.location.origin+'/'),[]);
  const linkField=useRef<HTMLInputElement>(null);
  const [copyStatus,setCopyStatus]=useState<'idle'|'copied'|'manual'>('idle');
  const [open,setOpen]=useState(false),[installed,setInstalled]=useState(false),[prompt,setPrompt]=useState<InstallPrompt|null>(null),[installing,setInstalling]=useState(false),[hint,setHint]=useState(''),[android,setAndroid]=useState(false),[safari,setSafari]=useState(false);

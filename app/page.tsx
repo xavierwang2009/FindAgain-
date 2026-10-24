@@ -1,5 +1,6 @@
 import FindAgain from './find-again';
-import {requireChatGPTUser} from './chatgpt-auth';
+import {getUser} from '@/lib/auth';
+import {redirect} from 'next/navigation';
 export const dynamic='force-dynamic';
-async function SignedInApp(){await requireChatGPTUser('/');return <FindAgain/>}
+async function SignedInApp(){if(!await getUser())redirect('/signin');return <FindAgain/>}
 export default function Home(){return <SignedInApp/>}
