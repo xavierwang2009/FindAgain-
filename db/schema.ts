@@ -1,2 +1,0 @@
-import { sqliteTable, text, integer, uniqueIndex } from 'drizzle-orm/sqlite-core';
-export const memories=sqliteTable('memories',{id:text('id').primaryKey(),owner:text('owner').notNull(),name:text('name').notNull(),nameKey:text('name_key').notNull(),location:text('location').notNull(),photoKey:text('photo_key'),updated:integer('updated').notNull()},t=>[uniqueIndex('memories_owner_name').on(t.owner,t.nameKey)]);
