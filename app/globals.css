@@ -105,3 +105,5 @@
 .find-form{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px}.find-submit{grid-column:1/-1;width:100%;margin-top:4px}.find-answer{margin-top:20px;padding:20px;background:#edf4ff;border:1px solid #bdd0ee;border-radius:16px;display:flex;flex-direction:column;gap:16px}.answer-text{display:flex;align-items:flex-start;gap:11px}.answer-text>svg{color:#174ec4;margin-top:4px}.answer-text p{font-size:1.1em;line-height:1.45;font-weight:600;margin:0;overflow-wrap:anywhere}.find-answer .secondary-button{align-self:flex-start}.find-answer.missing,.find-answer.empty{background:#fff7e6;border-color:#ebd398;text-align:left}.find-answer.choices{background:#fff7e6;border-color:#ebd398}.find-answer+.error{margin-top:12px}
 
 .device-note{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;font-size:14px;color:#38536b;margin:0 0 18px}.device-note a{text-decoration:underline}.intake-actions{grid-template-columns:repeat(2,minmax(0,1fr))}.find-form{grid-template-columns:minmax(0,1fr) auto}
+
+.voice-type{margin-top:10px;min-height:48px}.voice-type[aria-pressed="true"]{background:#e1efff;border-color:#245ac8}
