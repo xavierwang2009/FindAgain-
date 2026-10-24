@@ -48,3 +48,9 @@ next-env.d.ts
 *.tsbuildinfo
 
 .dev.vars*
+
+# Local design review and decision artifacts
+/.impeccable/review/
+/.impeccable/questions/
+/.impeccable/decisions/
+/.impeccable/detector.json

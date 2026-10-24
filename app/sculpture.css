@@ -1,0 +1,38 @@
+.fa-sculpture{position:relative;width:100%;min-width:0;isolation:isolate;--sculpture-pointer-x:0deg;--sculpture-pointer-y:0deg}
+.fa-sculpture-stage{position:relative;height:570px;width:100%;perspective:1000px;overflow:hidden;touch-action:pan-y}
+.fa-sculpture-halo{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 46%,#b2b08c16 0%,#76988408 35%,transparent 66%);pointer-events:none}
+.fa-sculpture-float{position:absolute;left:50%;top:43%;width:190px;height:390px;margin:-195px 0 0 -95px;transform-style:preserve-3d;animation:fa-sculpture-hover 8s ease-in-out infinite}
+.fa-sculpture-perspective{width:100%;height:100%;transform-style:preserve-3d;transform:rotateX(var(--sculpture-pointer-y)) rotateY(calc(var(--sculpture-pointer-x) + var(--sculpture-turn)));transition:transform .65s ease-out}
+.fa-sculpture-key{width:190px;height:390px;position:relative;transform-style:preserve-3d;transform:rotateZ(-35deg) rotateY(-24deg) rotateX(16deg)}
+.fa-sculpture-layer{position:absolute;inset:0;transform:translateZ(var(--sculpture-depth));transform-style:preserve-3d;color:hsl(35 31% var(--sculpture-metal))}
+.fa-sculpture-layer span{position:absolute;display:block;background:currentColor}
+.fa-sculpture-ring{left:10px;top:0;width:170px;height:170px;box-sizing:border-box;border:30px solid currentColor;border-radius:50%;background:transparent!important}
+.fa-sculpture-shaft{top:150px;left:78px;width:35px;height:222px;border-radius:0 0 7px 7px}
+.fa-sculpture-collar{left:66px;top:168px;width:59px;height:17px;border-radius:4px}
+.fa-sculpture-tooth{left:109px;width:56px;height:31px;border-radius:0 5px 5px 0}
+.fa-sculpture-tooth-one{top:282px}
+.fa-sculpture-tooth-two{top:341px}
+.fa-sculpture-face .fa-sculpture-ring{border-color:#bc9e69;box-shadow:inset 2px 3px 3px #ffedb881,2px -2px 1px #eed2a0,0 0 1px 1px #8c6e40;background:transparent!important}
+.fa-sculpture-face .fa-sculpture-shaft{background:linear-gradient(90deg,#a17d46,#d2b17a 27%,#bc9a62 65%,#997344);box-shadow:inset 1px 0 #f6d9a4}
+.fa-sculpture-face .fa-sculpture-collar{background:linear-gradient(#ecd4a1,#b08b51 40%,#806039);box-shadow:0 2px 2px #6b502c}
+.fa-sculpture-face .fa-sculpture-tooth{background:linear-gradient(165deg,#d4b780,#b18c51);box-shadow:inset 0 1px #f5dca7}
+.fa-sculpture-engraving{position:absolute;left:84px;top:204px;transform:translateZ(13px);color:#785d37;font-family:Georgia,serif;font-size:21px;text-shadow:0 1px #ebc993;line-height:1}
+.fa-sculpture-pedestal{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);width:280px;height:79px;border-radius:50% / 25%;background:linear-gradient(90deg,#252e28,#465044 35%,#343d33 70%,#1a251f);box-shadow:0 28px 38px #0003}
+.fa-sculpture-pedestal span{position:absolute;left:0;top:-1px;width:100%;height:39px;border-radius:50%;background:radial-gradient(ellipse at 42% 38%,#626b55,#414d3f 63%,#344131);box-shadow:inset 0 1px #b9bb9229}
+.fa-sculpture-shadow{position:absolute;width:170px;height:27px;left:50%;bottom:83px;margin-left:-85px;background:#0e180f8c;border-radius:50%;filter:blur(11px);animation:fa-sculpture-shadow 8s ease-in-out infinite}
+.fa-sculpture-orbit{position:absolute;left:50%;top:44%;width:470px;height:180px;margin:-90px 0 0 -235px;transform:rotate(-24deg);border:1px solid #d4d6ac25;border-radius:50%;pointer-events:none}
+.fa-sculpture-orbit-back{clip-path:inset(0 0 50% 0);border-color:#d4d6ac18}
+.fa-sculpture-orbit-front{clip-path:inset(50% 0 0 0)}
+.fa-sculpture-satellite{position:absolute;left:calc(50% + 150px);top:49%;width:57px;height:57px;animation:fa-sculpture-satellite 10s ease-in-out infinite}
+.fa-sculpture-satellite span{display:block;width:100%;height:100%;border-radius:50%;background:radial-gradient(circle at 31% 26%,#fff9e8,#e8e4d1 30%,#b3b5a0 62%,#5c705c 89%);box-shadow:inset -5px -7px 10px #122b254d,0 14px 25px #06171030}
+.fa-sculpture-star{position:absolute;width:4px;height:4px;border-radius:50%;background:#d7c99a;box-shadow:0 0 14px #e5d9ac66}
+.fa-sculpture-star-one{left:21%;top:27%}.fa-sculpture-star-two{right:19%;top:20%;width:2px;height:2px;opacity:.6}
+.fa-sculpture-controls{position:relative;display:flex;justify-content:center;gap:22px;margin-top:-5px}
+.fa-sculpture-controls button{display:inline-flex;align-items:center;gap:7px;border:0;background:transparent;color:#c6cbb7;font:inherit;font-size:11px;letter-spacing:.04em;padding:10px 2px;cursor:pointer;min-height:40px}
+.fa-sculpture-controls button:hover{color:#fff3d6}.fa-sculpture-controls button:focus-visible{outline:2px solid #e4c78c;outline-offset:4px;border-radius:3px}.fa-sculpture-controls button span{font-size:17px;line-height:1}
+.fa-sculpture[data-paused=true] .fa-sculpture-float,.fa-sculpture[data-paused=true] .fa-sculpture-shadow,.fa-sculpture[data-paused=true] .fa-sculpture-satellite{animation-play-state:paused}
+@keyframes fa-sculpture-hover{0%,100%{transform:translateY(0) rotateZ(-2deg)}50%{transform:translateY(-17px) rotateZ(2deg)}}
+@keyframes fa-sculpture-shadow{0%,100%{transform:scaleX(1);opacity:.8}50%{transform:scaleX(.8);opacity:.45}}
+@keyframes fa-sculpture-satellite{0%,100%{transform:translateY(0)}50%{transform:translateY(14px)}}
+@media(max-width:600px){.fa-sculpture-stage{height:430px}.fa-sculpture-float{scale:.78;top:43%}.fa-sculpture-pedestal{width:230px;height:66px;bottom:21px}.fa-sculpture-pedestal span{height:32px}.fa-sculpture-shadow{bottom:61px}.fa-sculpture-orbit{width:350px;height:140px;margin:-70px 0 0 -175px}.fa-sculpture-satellite{left:calc(50% + 111px);width:43px;height:43px}.fa-sculpture-controls{margin-top:0}}
+@media(prefers-reduced-motion:reduce){.fa-sculpture-float,.fa-sculpture-shadow,.fa-sculpture-satellite{animation:none}.fa-sculpture-perspective{transition:none}}
