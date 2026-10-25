@@ -41,3 +41,34 @@ export async function removeItem(id:string){
  return new Promise<void>((resolve,reject)=>{const tx=db.transaction('items','readwrite');tx.objectStore('items').delete(id);tx.oncomplete=()=>resolve();tx.onabort=()=>reject(tx.error)});
 }
 export function storageError(error:unknown){return error instanceof DOMException&&error.name==='QuotaExceededError'?'This browser’s storage is full. Remove an old item or photo and try again.':error instanceof Error?error.message:'Browser storage is unavailable. Allow site storage and try again.'}
+
+export async function exportBackup():Promise<string>{
+ const db=await database();
+ const rows=await new Promise<RecordItem[]>((resolve,reject)=>{const tx=db.transaction('items','readonly'),request=tx.objectStore('items').getAll();tx.oncomplete=()=>resolve(request.result);tx.onabort=()=>reject(tx.error)});
+ const items=await Promise.all(rows.map(async row=>{
+  let photo:null|{type:string;data:string}=null;
+  if(row.photo){const bytes=new Uint8Array(await row.photo.arrayBuffer());let binary='';for(let i=0;i<bytes.length;i+=8192)binary+=String.fromCharCode(...bytes.subarray(i,i+8192));photo={type:row.photo.type,data:btoa(binary)}}
+  return {name:row.name,location:row.location,updated:row.updated,photo};
+ }));
+ return JSON.stringify({format:'findagain-backup',version:1,exportedAt:new Date().toISOString(),items});
+}
+export async function restoreBackup(text:string):Promise<{added:number;skipped:number}>{
+ let data:any;try{data=JSON.parse(text)}catch{throw Error('This is not a valid FindAgain backup file.')}
+ if(data?.format!=='findagain-backup'||data.version!==1||!Array.isArray(data.items))throw Error('Choose a FindAgain backup exported by this app.');
+ // Validate every record before opening a write transaction; invalid files change nothing.
+ const rows:RecordItem[]=data.items.map((item:any)=>{
+  if(typeof item?.name!=='string'||!item.name.trim()||item.name.length>80||typeof item.location!=='string'||!item.location.trim()||item.location.length>300||!Number.isSafeInteger(item.updated)||item.updated<0)throw Error('The backup contains an invalid item. Nothing was restored.');
+  let photo:Blob|undefined;
+  if(item.photo!=null){
+   if(!['image/jpeg','image/png','image/webp','image/gif'].includes(item.photo.type)||typeof item.photo.data!=='string')throw Error('The backup contains an invalid photo. Nothing was restored.');
+   try{photo=new Blob([Uint8Array.from(atob(item.photo.data),c=>c.charCodeAt(0))],{type:item.photo.type})}catch{throw Error('The backup contains a damaged photo. Nothing was restored.')}
+  }
+  return {id:crypto.randomUUID(),name:item.name.trim(),nameKey:item.name.trim().toLowerCase(),location:item.location.trim(),updated:item.updated,photo};
+ });
+ const db=await database();
+ return new Promise((resolve,reject)=>{
+  const tx=db.transaction('items','readwrite'),store=tx.objectStore('items'),request=store.getAll();let added=0,skipped=0;
+  request.onsuccess=()=>{const names=new Set((request.result as RecordItem[]).map(row=>row.nameKey));for(const row of rows){if(names.has(row.nameKey)){skipped++;continue}names.add(row.nameKey);store.add(row);added++}};
+  tx.oncomplete=()=>resolve({added,skipped});tx.onabort=()=>reject(tx.error||Error('Restore failed. No items were changed.'));
+ });
+}
