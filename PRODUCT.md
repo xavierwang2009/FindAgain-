@@ -9,6 +9,6 @@ Save an item and its location, optionally with a photo, and find the last saved 
 ## Capabilities and Constraints
 Records and photos remain in the current browser's IndexedDB. No sign-in or cloud record synchronization. Optional voice typing may use the browser's cloud speech service, with visible disclosure. Review transcription before Save or Find. Preserve editing, deletion, installation and larger text controls. Hosted on the existing ChatGPT Site; source also published to the user's GitHub repository.
 ## Brand Commitments
-FindAgain by Xavier Wang. User requests a bold interactive redesign with floating 3D animation and dark or sand colors. A top-level Easy / Immersive switch is required; both modes share functionality and stored data.
+FindAgain by Xavier Wang. User requests a bold interactive redesign with floating 3D animation and dark or sand colors. A top-level Day / Night color switch is required; both themes share the same layout, functionality and stored data. Default follows device light/dark preference until manually selected. Decorative key removed.
 ## Accessibility & Inclusion
 Easy mode prioritizes large controls and readable text for people who find typing difficult. Honor reduced motion in both modes. Voice input supplements ordinary keyboard access.

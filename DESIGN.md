@@ -234,3 +234,6 @@ Immersive includes a CSS 3D bronze key, orbital lines, a satellite sphere and a 
 
 ### Phone task layout (October 25, 2026)
 At 650px and below, omit the desktop introduction and decorative scene. Keep the experience selector, task tabs and 44px touch targets. Put 82px speech controls beside labeled inputs. Primary save and typical find answers fit a 375x667 viewport at normal text size; long data and enlarged text scroll naturally. Tabs read Save a place / Find my item.
+
+### Day / Night update
+The visible switch is Day / Night. Both themes use the same comfortable single-column layout. The default follows prefers-color-scheme until a choice is saved. Remove the decorative key sculpture and key icons; the prior sculpture guidance is superseded.
