@@ -231,3 +231,6 @@ Immersive includes a CSS 3D bronze key, orbital lines, a satellite sphere and a 
 - **Don't** put saved user records or photos into decorative scene elements.
 - **Don't** make decoration a prerequisite to saving or finding.
 - **Don't** add ambient movement to Easy or override reduced motion.
+
+### Phone task layout (October 25, 2026)
+At 650px and below, omit the desktop introduction and decorative scene. Keep the experience selector, task tabs and 44px touch targets. Put 82px speech controls beside labeled inputs. Primary save and typical find answers fit a 375x667 viewport at normal text size; long data and enlarged text scroll naturally. Tabs read Save a place / Find my item.

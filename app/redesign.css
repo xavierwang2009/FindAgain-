@@ -12,3 +12,29 @@ body{background:var(--sand);color:var(--ink);font-family:Manrope,sans-serif;tran
 @media(max-width:650px){.intro,.easy .intro{margin:4px 0 20px}.intro h1,.easy .intro h1{font-size:36px}.intro>p,.easy .intro>p{margin-top:10px}.workspace{padding-top:18px}.workspace-heading{margin-bottom:16px}}
 /* Field boundaries remain visible in both experiences. */
 :root{--field-line:#807664}:root[data-experience=immersive]{--field-line:#899b8c}.input-block input,.searchbar,.copy-link-panel input{border-color:var(--field-line)}.delete-button{color:#a4422b}
+
+/* Phone app: task controls first, with speech beside each field. */
+.voice-short{display:none}.field-entry{display:flex;flex-direction:column;gap:8px;min-width:0}.task-instruction{font-size:.85em;color:var(--sub);margin:8px 0 0;line-height:1.5}
+@media(max-width:650px){
+ .app,.app.easy{font-size:17px}.app.larger{font-size:21px}
+ .header{padding:max(10px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) 10px max(16px,env(safe-area-inset-left));gap:8px}
+ .brand{font-size:21px}.header-actions>button{min-width:44px;width:44px;height:44px}
+ .experience-switch{padding:3px;gap:4px}.experience-switch button{min-height:44px;padding:8px 16px;font-size:14px}
+ .main{padding:0 max(16px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
+ .intro,.easy .intro,.scene-column{display:none}
+ .device-note,.easy .device-note{font-size:11px;margin:4px 0 8px;gap:5px;line-height:1.4}.device-note a{margin-left:auto}
+ .mode-tabs{height:52px!important;gap:12px!important;justify-content:space-between!important}.mode-tabs [data-slot=tabs-trigger]{flex:1;gap:7px!important;font-size:15px!important;padding:9px 0!important}.mode-tabs [data-slot=tabs-trigger] svg{width:18px!important;height:18px!important}
+ .workspace{padding-top:16px}.workspace-heading{margin-bottom:14px}.workspace-heading h2{font-size:23px;line-height:1.2}.task-instruction{font-size:14px;margin-top:6px}
+ .remember-form fieldset{gap:12px}.what-where{gap:12px;order:0}.input-block{gap:6px}.input-block label{font-size:15px}
+ .field-entry{display:grid;grid-template-columns:minmax(0,1fr) 82px;gap:8px;align-items:stretch}
+ .input-block input,.easy .input-block input{min-height:52px;padding:12px;font-size:17px}
+ .field-entry .voice-type,.easy .field-entry .voice-type{min-height:52px;min-width:0;padding:8px;gap:5px;justify-content:center;flex-direction:column;font-size:12px;line-height:1.1}.field-entry .voice-type svg{width:20px;height:20px}.field-entry .voice-label{display:none}.field-entry .voice-short{display:inline}
+ .intake-actions{order:1}.intake{min-height:44px;padding:8px 12px;font-size:14px}.intake.manual{display:none}.intake.camera span::after{content:' (optional)';font-weight:400}
+ .photo-preview{order:2}.voice-disclosure{order:3}.save-row{order:4}.remember-form .error,.remember-form fieldset>.context-hint:not(.voice-disclosure){order:3}
+ .context-hint,.easy .context-hint{font-size:12px;line-height:1.5}.save-button{min-height:52px;font-size:17px}.save-row{gap:8px}
+ .saved-section,.easy .saved-section{margin-top:24px;padding-top:18px}.section-heading{margin-bottom:12px}.section-heading h2{font-size:18px}.empty{padding:10px 0;gap:10px}.empty-icons{display:none}.empty p{font-size:14px}
+ .find-form{grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:stretch}.find-submit{grid-column:auto;margin:0;min-height:52px;padding:10px 14px}.find-submit svg{display:none}.searchbar{min-height:52px;padding:10px;gap:7px}.searchbar input{font-size:17px}.find-form+.voice-type{margin:10px 0;min-height:48px}.find-answer{margin-top:14px;padding:16px;gap:12px}.answer-text p{font-size:19px;line-height:1.45}.find-answer .detail-photo{max-height:150px}.find-answer .secondary-button{min-height:44px;padding:10px 14px}.find-answer .text-button{min-height:44px}
+ .item-card{padding:14px;gap:12px}.item-info{gap:4px}.item-location{font-size:14px}.item-icon{width:42px;height:42px}.item-photo{width:48px;height:48px}.app-footer{margin-top:24px;padding-top:16px;gap:8px;font-size:11px}
+ .larger .field-entry{grid-template-columns:minmax(0,1fr) 86px}.larger .input-block input{font-size:21px}.larger .task-instruction,.larger .input-block label{font-size:18px}.larger .context-hint{font-size:14px}.larger .mode-tabs [data-slot=tabs-trigger]{font-size:16px!important}
+}
+@media(max-width:650px){.workspace-heading>div{min-width:0;width:100%}.workspace-heading h2{font-size:22px;overflow-wrap:anywhere}.app.larger .workspace-heading h2{font-size:25px}}
